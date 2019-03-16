@@ -21,7 +21,9 @@ export default function reducer(state: State = initialState, action: Action): St
     case actions.LOADED:
       return {
         ...state,
-        seats: action.payload.seats,
+        seats: action.payload.seats.map((seat: any) =>
+          seat.reserved ? { ...seat, reserved: false, reservedBySomeoneElse: true } : seat
+        ),
         loading: false
       };
     case actions.RESERVING:
