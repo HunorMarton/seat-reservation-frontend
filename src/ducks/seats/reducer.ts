@@ -29,7 +29,7 @@ export default function reducer(state: State = initialState, action: Action): St
         ...state
       };
     case actions.RESERVED:
-      console.log('reducer: reserved');
+      console.log('reducer: reserved', action.payload.row, action.payload.column);
       return {
         ...state,
         seats: state.seats.map(seat =>
@@ -39,7 +39,7 @@ export default function reducer(state: State = initialState, action: Action): St
         )
       };
     case actions.RESERVED_BY_SOMEONE_ELSE:
-      console.log('reducer: reserved by someone else');
+      console.log('reducer: reserved by someone else', action.payload.row, action.payload.column);
       return {
         ...state,
         seats: state.seats.map(seat =>
@@ -53,7 +53,7 @@ export default function reducer(state: State = initialState, action: Action): St
         ...state
       };
     case actions.CANCELLED:
-      console.log('reducer: cancelled');
+      console.log('reducer: cancelled', action.payload.row, action.payload.column);
       return {
         ...state,
         seats: state.seats.map(seat =>
@@ -63,7 +63,7 @@ export default function reducer(state: State = initialState, action: Action): St
         )
       };
     case actions.CANCELLED_BY_SOMEONE_ELSE:
-      console.log('reducer: cancelled by someone else');
+      console.log('reducer: cancelled by someone else', action.payload.row, action.payload.column);
       return {
         ...state,
         seats: state.seats.map(seat =>

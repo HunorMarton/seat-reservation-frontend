@@ -19,8 +19,6 @@ const Plane: React.FC<Props> = props => {
   const { socket, seatsGroupedByRow, reserve } = props;
   const handleReserve = (row: number, column: string) => reserve(socket, row, column);
 
-  console.log(seatsGroupedByRow);
-
   return (
     <div className="plane">
       {seatsGroupedByRow.map(row => (

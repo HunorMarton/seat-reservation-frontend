@@ -41,14 +41,14 @@ export const reserve = (socket: any, row: number, column: string) => {
     console.log(alreadySelectedSeat);
     if (alreadySelectedSeat) {
       dispatch(cancelling());
-      console.log('canceling', row, column);
+      console.log('canceling', alreadySelectedSeat.row, alreadySelectedSeat.column);
 
       socket.emit('cancel', { row: alreadySelectedSeat.row, column: alreadySelectedSeat.column });
 
-      dispatch(cancelled(row, column));
+      dispatch(cancelled(alreadySelectedSeat.row, alreadySelectedSeat.column));
     }
 
-    console.log('reserving');
+    console.log('reserving', row, column);
     socket.emit('reserve', { row, column });
 
     dispatch(reserved(row, column));
