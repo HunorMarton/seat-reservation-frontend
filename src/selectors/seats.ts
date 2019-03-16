@@ -13,7 +13,7 @@ export const getSeatsGroupedByRow = createSelector(
   seats =>
     seats
       .sort(
-        (a, b) => a.row * 100 + columnToNumber(a.column) - b.row * 100 + columnToNumber(b.column)
+        (a, b) => a.row * 100 + columnToNumber(a.column) - (b.row * 100 + columnToNumber(b.column))
       )
       .reduce((acc, curr) => {
         if (acc.length !== 0 && acc[acc.length - 1][0].row === curr.row) {
