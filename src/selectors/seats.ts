@@ -1,9 +1,10 @@
 import { createSelector } from 'reselect';
 import { State } from '../ducks/rootReducer';
+import Seat from '../types/Seat';
 
 const getSeats = (state: State) => state.seats.seats;
 
-const columnToNumber = (column: any): number => {
+const columnToNumber = (column: string): number => {
   const map: { [key: string]: number } = { A: 0, B: 1, C: 2, D: 3, E: 4, F: 5 };
   return map[column];
 };
@@ -15,14 +16,17 @@ export const getSeatsGroupedByRow = createSelector(
       .sort(
         (a, b) => a.row * 100 + columnToNumber(a.column) - (b.row * 100 + columnToNumber(b.column))
       )
-      .reduce((acc, curr) => {
-        if (acc.length !== 0 && acc[acc.length - 1][0].row === curr.row) {
-          acc[acc.length - 1].push(curr);
+      .reduce(
+        (acc, curr) => {
+          if (acc.length !== 0 && acc[acc.length - 1][0].row === curr.row) {
+            acc[acc.length - 1].push(curr);
+            return acc;
+          }
+          acc.push([curr]);
           return acc;
-        }
-        acc.push([curr]);
-        return acc;
-      }, [])
+        },
+        [] as Seat[][]
+      )
 );
 
 export const getSelectedSeat = createSelector(

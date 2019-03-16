@@ -1,8 +1,9 @@
 import Action from '../Action';
 import * as actions from './actions';
+import Seat from '../../types/Seat';
 
 interface State {
-  seats: any[];
+  seats: Seat[];
   loading: boolean;
 }
 
@@ -21,7 +22,7 @@ export default function reducer(state: State = initialState, action: Action): St
     case actions.LOADED:
       return {
         ...state,
-        seats: action.payload.seats.map((seat: any) =>
+        seats: action.payload.seats.map((seat: Seat) =>
           seat.reserved ? { ...seat, reserved: false, reservedBySomeoneElse: true } : seat
         ),
         loading: false

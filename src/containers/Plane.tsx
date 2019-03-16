@@ -8,11 +8,11 @@ import { reserve } from '../ducks/seats/actions';
 import './Plane.css';
 
 type Props = {
-  socket: any;
+  socket: SocketIOClient.Socket;
 
   seatsGroupedByRow: SeatType[][];
 
-  reserve: (socket: any, row: number, column: string) => void;
+  reserve: (socket: SocketIOClient.Socket, row: number, column: string) => void;
 };
 
 const Plane: React.FC<Props> = props => {

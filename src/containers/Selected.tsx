@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { State } from '../ducks/rootReducer';
-import SeatType from '../types/Seat';
+import Seat from '../types/Seat';
 import { getSelectedSeat } from '../selectors/seats';
 import './Selected.css';
 
 type Props = {
-  reservedSeat: SeatType;
+  reservedSeat?: Seat;
 };
 
 const Selected: React.FC<Props> = props => {
