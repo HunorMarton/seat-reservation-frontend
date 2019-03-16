@@ -1,0 +1,28 @@
+.seat {
+  display: inline-block;
+  margin: 0.2rem;
+  width: 30px;
+  height: 30px;
+  background-color: lightgray;
+  border-radius: 3px;
+}
+.seat--reserved {
+  background-color: green;
+}
+.seat--reserved-by-someone-else {
+  background-color: red;
+}
+
+.seat__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seat__fee {
+  font-size: 0.6em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  user-select: none;
+}

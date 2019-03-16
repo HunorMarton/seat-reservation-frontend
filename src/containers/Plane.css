@@ -1,0 +1,13 @@
+.plane {
+  margin: 3em;
+}
+
+.plane__row > div:nth-of-type(3) {
+  margin-right: 30px;
+}
+
+.plane__row__header {
+  display: inline-block;
+  font-size: 0.8em;
+  min-width: 50px;
+}
